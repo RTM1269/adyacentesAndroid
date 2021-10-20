@@ -4,92 +4,142 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_margin="10dp"
+    android:scrollbarThumbHorizontal="@color/teal_700"
+    android:visibility="visible"
+    app:barrierMargin="@android:dimen/app_icon_size"
+    tools:context=".MainActivity"
+    >
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:foregroundTint="#FFFEFE"
+        android:orientation="vertical"
+        android:textAlignment="center"
+        app:flow_horizontalAlign="center"
+        app:flow_verticalAlign="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:layout_editor_absoluteX="61dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal"
+            android:textAlignment="center">
 
-            <TableLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFFFFF">
+                <Button
+                    android:id="@+id/btnNO"
+                    android:layout_width="145dp"
+                    android:layout_height="145dp"
+                    android:background="#70B8C7"
+                    android:onClick="clickNO" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+            </LinearLayout>
 
-                        <Button
-                            android:id="@+id/btnNO"
-                            android:layout_width="135dp"
-                            android:layout_height="145dp"
-                            android:onClick="clickNO" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
 
-                        <Button
-                            android:id="@+id/btnNE"
-                            android:layout_width="145dp"
-                            android:layout_height="145dp"
-                            android:onClick="clickNE" />
-                    </LinearLayout>
+                <Button
+                    android:id="@+id/btnNE"
+                    android:layout_width="145dp"
+                    android:layout_height="145dp"
+                    android:background="#70B8C7"
+                    android:onClick="clickNE"
+                    android:padding="10dp" />
+            </LinearLayout>
 
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFFFFF">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:id="@+id/btnSO"
-                            android:layout_width="145dp"
-                            android:layout_height="145dp"
-                            android:onClick="clickSO" />
-
-                        <Button
-                            android:id="@+id/btnSE"
-                            android:layout_width="145dp"
-                            android:layout_height="145dp"
-                            android:onClick="clickSE" />
-                    </LinearLayout>
-
-                </TableRow>
-
-            </TableLayout>
         </LinearLayout>
-    </ScrollView>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal"
+            android:textAlignment="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnSO"
+                    android:layout_width="145dp"
+                    android:layout_height="145dp"
+                    android:background="#70B8C7"
+                    android:onClick="clickSO" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnSE"
+                    android:layout_width="145dp"
+                    android:layout_height="145dp"
+                    android:background="#70B8C7"
+                    android:onClick="clickSE" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#323030"
+        android:foregroundTint="#FFFEFE"
         android:gravity="center|center_horizontal|center_vertical"
         android:lineSpacingExtra="10sp"
         android:text="Juego ADYACENTES"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvPuntos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:text="PUNTOS"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:layout_editor_absoluteX="167dp" />
+
+    <TextView
+        android:id="@+id/tvRes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="90dp"
+        android:text="0"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPuntos" />
 
 </android.support.constraint.ConstraintLayout>
