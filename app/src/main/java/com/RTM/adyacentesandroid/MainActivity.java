@@ -29,28 +29,28 @@ private int estadoNE=0,estadoNO=0,estadoSE=0,estadoSO=0,puntos=0;
         estadoNO=CambiarCelda(ccBtnNO,estadoNO);
         estadoNE=CambiarCelda(ccBtnNE,estadoNE);
         estadoSO=CambiarCelda(ccBtnSO,estadoSO);
-        verifier_win();
+        verifier_win(view);
     }
 
     public void clickNE(View view) {
         estadoNO=CambiarCelda(ccBtnNO,estadoNO);
         estadoNE=CambiarCelda(ccBtnNE,estadoNE);
         estadoSE=CambiarCelda(ccBtnSE,estadoSE);
-        verifier_win();
+        verifier_win(view);
     }
 
     public void clickSO(View view) {
         estadoNO=CambiarCelda(ccBtnNO,estadoNO);
         estadoSE=CambiarCelda(ccBtnSE,estadoSE);
         estadoSO=CambiarCelda(ccBtnSO,estadoSO);
-        verifier_win();
+        verifier_win(view);
     }
 
     public void clickSE(View view) {
         estadoSE=CambiarCelda(ccBtnSE,estadoSE);
         estadoNE=CambiarCelda(ccBtnNE,estadoNE);
         estadoSO=CambiarCelda(ccBtnSO,estadoSO);
-        verifier_win();
+        verifier_win(view);
     }
     private int CambiarCelda(Button btnCambiar,int estado){
         if (estado==1) {
@@ -62,16 +62,15 @@ private int estadoNE=0,estadoNO=0,estadoSE=0,estadoSO=0,puntos=0;
         }
         return estado;
     }
-    private void verifier_win(){
-        if (estadoSO==estadoNE && estadoSO == estadoNO && estadoSO == estadoSE){
-            Toast toast = new Toast(getApplicationContext());
-            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-            toast.setDuration(Toast.LENGTH_LONG);
-            toast.show();
-            toast.makeText(this, "Ha ganado", Toast.LENGTH_LONG);
-            toast.show();
+    private void verifier_win(View view){
+        if ((estadoSO==estadoNE) && (estadoSO == estadoNO) && (estadoSO == estadoSE)){
+            Toast notificacion= Toast.makeText(this,"Muy bien, GANASTE!!",Toast.LENGTH_LONG);
+            notificacion.show();
+            Toast notificacion2= Toast.makeText(resultado.getContext(), "OTRO PUNTITO!!",Toast.LENGTH_LONG);
+
+            notificacion2.show();
             puntos++;
-            resultado.setText(puntos);
+            resultado.setText(String.valueOf(puntos));
         }
     }
 
